@@ -13,10 +13,12 @@
 
     <Button
         android:id="@+id/buttonScan"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Scan QR Code" />
+        android:text="Scan QR Code"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="265dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +26,8 @@
         android:orientation="vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="87dp">
+        android:layout_marginTop="87dp"
+        android:id="@+id/linearLayout">
 
         <TextView
             android:layout_width="match_parent"
@@ -53,4 +56,15 @@
 
 
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="26dp"
+        android:ems="10"
+        android:inputType="date" />
 </RelativeLayout>
