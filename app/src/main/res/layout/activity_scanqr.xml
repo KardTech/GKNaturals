@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.kard.gknaturals.ScanQr"
+    android:background="@drawable/gkbg">
+
+    <Button
+        android:id="@+id/buttonScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QR"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="265dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="87dp"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:text="Product"
+            android:textColorLink="@android:color/black" />
+
+        <TextView
+            android:id="@+id/textViewProductName"
+            android:layout_width="182dp"
+            android:layout_height="wrap_content"
+            android:text="ProductName"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:text="Quantity" />
+
+        <TextView
+            android:id="@+id/textViewQuantity"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:text="Quantity"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
