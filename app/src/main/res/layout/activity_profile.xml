@@ -11,7 +11,7 @@
     android:background="@drawable/gkbg" >
 
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,63 +25,66 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
             android:id="@+id/textViewUserEmail"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:layout_alignBaseline="@+id/buttonLogout"
+            android:layout_alignBottom="@+id/buttonLogout"
+            android:layout_alignParentStart="true" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Logout"
             android:id="@+id/buttonLogout"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
 
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/buttonScan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/linearLayout"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="265dp"
-        android:text="QR" />
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:id="@+id/linearLayout"
+        android:layout_marginTop="86dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="87dp"
-        android:id="@+id/linearLayout">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Product"
-            android:textColorLink="@android:color/black" />
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/textViewProductName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ProductName"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quantity" />
-
-        <TextView
             android:id="@+id/textViewQuantity"
-            android:layout_width="match_parent"
+            android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:text="Quantity"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_below="@+id/textViewProductName"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/buttonScan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QR"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+        <TextView
+            android:id="@+id/textViewItemCode"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:text="ItemCode"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_below="@+id/textViewQuantity"
+            android:layout_alignParentStart="true" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

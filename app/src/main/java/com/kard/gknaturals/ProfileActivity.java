@@ -16,6 +16,7 @@ package com.kard.gknaturals;
         import org.json.JSONObject;
         import android.widget.Toast;
 
+
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
     //firebase auth object
@@ -29,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private Button buttonScan;
     private TextView textViewProductName;
     private TextView textViewQuantityValue;
+    private TextView textViewItemCode;
 
     //qr code scanner object
     private IntentIntegrator qrScan;
@@ -58,7 +60,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
 
         //displaying logged in user name
-        textViewUserEmail.setText("Welcome "+user.getEmail());
+        textViewUserEmail.setText(user.getEmail());
 
         //adding listener to button
         buttonLogout.setOnClickListener(this);
@@ -66,6 +68,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         buttonScan = (Button) findViewById(R.id.buttonScan);
         textViewProductName = (TextView) findViewById(R.id.textViewProductName);
         textViewQuantityValue = (TextView) findViewById(R.id.textViewQuantity);
+        textViewItemCode = (TextView) findViewById(R.id.textViewItemCode);
 
 
         //intializing scan object
@@ -90,6 +93,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     //setting values to textviews
                     textViewProductName.setText(obj.getString("ProductName"));
                     textViewQuantityValue.setText(obj.getString("Quantity"));
+                    textViewItemCode.setText(obj.getString("ItemCode"));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
