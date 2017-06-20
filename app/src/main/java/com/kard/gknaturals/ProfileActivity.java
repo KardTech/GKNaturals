@@ -1,11 +1,17 @@
 package com.kard.gknaturals;
 
 
+        import android.app.Activity;
         import android.content.Intent;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
+        import android.view.Menu;
         import android.view.View;
+        import android.view.ViewGroup;
         import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.ImageButton;
+        import android.widget.LinearLayout;
         import android.widget.TextView;
         import com.google.firebase.auth.FirebaseAuth;
         import com.google.firebase.auth.FirebaseUser;
@@ -15,6 +21,8 @@ package com.kard.gknaturals;
         import org.json.JSONException;
         import org.json.JSONObject;
         import android.widget.Toast;
+
+        import java.util.ArrayList;
 
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
@@ -34,6 +42,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     //qr code scanner object
     private IntentIntegrator qrScan;
+
+    //list
+    Button btnDisplay;
+    ImageButton btnAdd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +89,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         //attaching onclick listener
         buttonScan.setOnClickListener(this);
+
+        //list
+        btnAdd = (ImageButton) findViewById(R.id.btnAdd);
+        btnDisplay = (Button) findViewById(R.id.btnDisplay);
+
+        MyLayoutOperation.add(this, btnAdd);
+        MyLayoutOperation.display(this, btnDisplay);
     }
     //Getting the scan results
     @Override
@@ -126,4 +146,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 }
+

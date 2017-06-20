@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rowdetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <TextView
+        android:id="@+id/textViewProductName"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:text="ProductName"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_weight="0.05">
+
+        <requestFocus />
+    </TextView>
+
+    <TextView
+        android:id="@+id/textViewQuantity"
+        android:layout_width="342dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textViewProductName"
+        android:text="Quantity"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large">
+
+        <requestFocus />
+    </TextView>
+
+    <TextView
+        android:id="@+id/textViewItemCode"
+        android:layout_width="344dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textViewQuantity"
+        android:text="ItemCode"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large">
+
+        <requestFocus />
+    </TextView>
+    <Button
+        android:id="@+id/buttonScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QR"
+        android:layout_alignBaseline="@+id/btnDisplay"
+        android:layout_alignBottom="@+id/btnDisplay"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="14dp" ><requestFocus /></Button>
+
+    <ImageButton
+        android:id="@+id/btnRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="remove"
+        android:src="@android:drawable/ic_delete" />
+
+    <EditText
+        android:id="@+id/editDescricao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.62"
+        android:ems="10"
+        android:inputType="text">
+
+        <requestFocus />
+    </EditText>
+
+</LinearLayout>

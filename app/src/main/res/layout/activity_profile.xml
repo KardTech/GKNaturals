@@ -15,8 +15,8 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
 
         <TextView
@@ -36,55 +36,54 @@
             android:text="Logout"
             android:id="@+id/buttonLogout"
             android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="32dp"
             android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true" />
-
+            android:layout_toStartOf="@+id/btnAdd" />
+        <ImageButton
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="add"
+            android:src="@android:drawable/ic_input_add" />
 
 
     </RelativeLayout>
 
-    <RelativeLayout
+
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/linearLayout"
-        android:layout_marginTop="86dp"
+        android:layout_height="400dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_marginTop="82dp">
 
-        <TextView
-            android:id="@+id/textViewProductName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearLayoutForm"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ProductName"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/textViewQuantity"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:text="Quantity"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:layout_below="@+id/textViewProductName"
-            android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/btnDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="show"
+        android:layout_marginStart="14dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true" />
 
-        <Button
-            android:id="@+id/buttonScan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="QR"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true" />
-        <TextView
-            android:id="@+id/textViewItemCode"
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
-            android:text="ItemCode"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:layout_below="@+id/textViewQuantity"
-            android:layout_alignParentStart="true" />
-
-
-    </RelativeLayout>
+    <Button
+        android:id="@+id/buttonScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QR"
+        android:layout_alignBaseline="@+id/btnDisplay"
+        android:layout_alignBottom="@+id/btnDisplay"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="14dp" />
 
 </RelativeLayout>
