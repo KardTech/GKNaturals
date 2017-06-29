@@ -94,8 +94,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         btnAdd = (ImageButton) findViewById(R.id.btnAdd);
         btnDisplay = (Button) findViewById(R.id.btnDisplay);
 
-        MyLayoutOperation.add(this, btnAdd);
-        MyLayoutOperation.display(this, btnDisplay);
+        add(this, btnAdd);
+        display(this, btnDisplay);
+        //qrToScan(this, buttonScan);
     }
     //Getting the scan results
     @Override
@@ -142,7 +143,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         if(view == buttonScan){
+            Toast.makeText(this, "In buttonScan", Toast.LENGTH_LONG).show();
             qrScan.initiateScan();
+
         }
 
     }
@@ -152,5 +155,92 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    public static void display(final Activity activity, Button btn)
+    {
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                LinearLayout scrollViewlinerLayout = (LinearLayout) activity.findViewById(R.id.linearLayoutForm);
+
+                java.util.ArrayList<String> msg = new ArrayList<String>();
+                java.util.ArrayList<String> items = new ArrayList<String>();
+
+                for (int i = 0; i < scrollViewlinerLayout.getChildCount(); i++)
+                {
+                    LinearLayout innerLayout = (LinearLayout) scrollViewlinerLayout.getChildAt(i);
+                    EditText edit = (EditText) innerLayout.findViewById(R.id.editDescricao);
+                    TextView textViewProductName = (TextView) innerLayout.findViewById(R.id.textViewProductName);
+                    TextView textViewQuantity = (TextView) innerLayout.findViewById(R.id.textViewQuantity);
+                    TextView textViewItemCode = (TextView) innerLayout.findViewById(R.id.textViewItemCode);
+                    Button buttonScan = (Button) innerLayout.findViewById(R.id.buttonScan);
+
+                    msg.add(edit.getText().toString());
+                    items.add (textViewItemCode.getText().toString());
+
+                }
+
+                Toast t = Toast.makeText(activity.getApplicationContext(), items.toString(), Toast.LENGTH_SHORT);
+                t.show();
+            }
+        });
+    }
+
+    public static void add(final Activity activity, ImageButton btn)
+    {
+        final LinearLayout linearLayoutForm = (LinearLayout) activity.findViewById(R.id.linearLayoutForm);;
+
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                final LinearLayout newView = (LinearLayout)activity.getLayoutInflater().inflate(R.layout.rowdetail, null);
+
+                newView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+                ImageButton btnRemove = (ImageButton) newView.findViewById(R.id.btnRemove);
+                btnRemove.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+
+                        linearLayoutForm.removeView(newView);
+                        System.out.println("in add funct");
+
+                    }
+                });
+
+                linearLayoutForm.addView(newView);
+            }
+        });
+
+    }
+
+    public static void qrToScan (final Activity activity, Button btn){
+        final LinearLayout linearLayoutForm = (LinearLayout) activity.findViewById(R.id.linearLayoutForm);;
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                final LinearLayout newView = (LinearLayout)activity.getLayoutInflater().inflate(R.layout.rowdetail, null);
+
+                newView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+                Button btnScan = (Button) newView.findViewById(R.id.buttonScan);
+                btnScan.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+
+                        System.out.println("Button Clicked");
+
+                    }
+                });
+
+                linearLayoutForm.addView(newView);
+            }
+        });
+    }
 }
+
 
